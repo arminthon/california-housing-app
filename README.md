@@ -1,16 +1,24 @@
-# 🏡 California House Price Predictor
+# 🏡 California Housing Price Predictor
 
-An interactive end-to-end Machine Learning web application that predicts California housing prices based on block group characteristics.
+An end-to-end Machine Learning web application built with Python, Scikit-learn, and Streamlit. It predicts median house values in California based on neighborhood features like median income, house age, and average rooms.
 
-🌐 **Live Demo:** [Click here to view the live app](https://california-housing-app-uezisw532ov98bbbgbmnkw.streamlit.app/)
+🌐 **Live Demo:** https://california-housing-app-uezisw532ov98bbbgbmnkw.streamlit.app/
 
 ---
 
-## 🛠️ Features & Tech Stack
-- **Framework:** Python, Streamlit
-- **Machine Learning:** Scikit-Learn (Random Forest Regressor)
-- **Serialization:** Joblib
-- **Key Inputs:** Median Income (`MedInc`), House Age (`HouseAge`), Average Rooms (`AveRooms`)
+## 🚀 Features
+- **Interactive UI:** Adjust sliders for Income, House Age, and Average Rooms to see real-time price predictions.
+- **ML Model:** Powered by a `RandomForestRegressor` trained on the classic California housing dataset.
+- **Data Insight:** Includes an analytical line chart showing how varying income levels affect predicted housing prices.
+
+---
+
+## 🛠️ Tech Stack
+- **Python** (Core logic & data processing)
+- **Scikit-learn** (Machine Learning model training)
+- **Pandas & NumPy** (Data handling)
+- **Joblib** (Model serialization)
+- **Streamlit** (Web app & deployment)
 
 ---
 
