@@ -1,4 +1,5 @@
 import joblib
+import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -75,6 +76,7 @@ if st.button("پیش‌بینی قیمت خانه 🚀"):
 # 5. Adding a quick chart (نمایش نمودار مقایسه‌ای)
 st.subheader("📊 Quick Data Insight")
 import pandas as pd
+import numpy as np
 # فرض کن یک نمونه داده کوچک برای نمایش نمودار داریم
 chart_data = pd.DataFrame(
     np.random.randn(20, 3),
