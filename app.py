@@ -72,3 +72,12 @@ if st.button("پیش‌بینی قیمت خانه 🚀"):
     st.success(
         f"💰 قیمت تخمینی این خانه حدوداً: **${predicted_price:,.0f} دلار** است."
     )
+# 5. Adding a quick chart (نمایش نمودار مقایسه‌ای)
+st.subheader("📊 Quick Data Insight")
+import pandas as pd
+# فرض کن یک نمونه داده کوچک برای نمایش نمودار داریم
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['MedInc', 'HouseAge', 'AveRooms']
+)
+st.line_chart(chart_data)
