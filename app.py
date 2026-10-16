@@ -73,13 +73,28 @@ if st.button("پیش‌بینی قیمت خانه 🚀"):
     st.success(
         f"💰 قیمت تخمینی این خانه حدوداً: **${predicted_price:,.0f} دلار** است."
     )
-# 5. Adding a quick chart (نمایش نمودار مقایسه‌ای)
-st.subheader("📊 Quick Data Insight")
-import pandas as pd
-import numpy as np
-# فرض کن یک نمونه داده کوچک برای نمایش نمودار داریم
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['MedInc', 'HouseAge', 'AveRooms']
-)
-st.line_chart(chart_data)
+# 5. Real chart: effect of income on predicted house price
+st.subheader("💰 Effect of Income on Predicted House Price")
+st.write("Each point shows the model's predicted house price for a given median income, keeping other factors fixed.")
+
+# we create 20 income values from 1 to 10 (each unit = $10,000/year)
+incomes = np.linspace(1, 10, 20)   # 20 equally spaced numbers between 1 and 10
+
+# build the input table: MedInc changes, HouseAge=10 and AveRooms=5 stay fixed
+input_data = pd.DataFrame({
+    'MedInc': incomes,      # the changing variable
+    'HouseAge': [10] * 20,  # fixed value so results are comparable
+    'AveRooms': [5] * 20    # fixed value so results are comparable
+})
+
+# ask the trained model to predict the price for each income
+predictions = model.predict(input_data)
+
+# put income and price in one table for the chart
+chart_df = pd.DataFrame({
+    'Median Income ($10k/year)': incomes,
+    'Predicted Price ($100k)': predictions
+}).set_index('Median Income ($10k/year)')
+
+# draw the chart — x axis = income, y axis = price
+st.line_chart(chart_df)
